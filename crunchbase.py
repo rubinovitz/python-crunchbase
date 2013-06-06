@@ -1,11 +1,11 @@
 """
-Python library for the crunchbase api.
-Copyright (c) 2010 Apurva Mehta <mehta.apurva@gmail.com>
+For of Apurva Mehta's Python library for the crunchbase api.
+Copyright (c) 2013 Jennifer Rubinovitz
 
 """
 
-__author__  = 'Apurva Mehta'
-__version__ = '1.0.2'
+__author__  = 'Jennifer Rubinovitz'
+__version__ = '0.1'
 
 
 import urllib2
@@ -16,9 +16,10 @@ API_BASE_URL = "http://api.crunchbase.com/"
 API_VERSION  = "1"
 API_URL      = API_BASE_URL + "v" + "/" + API_VERSION + "/"
 
-class crunchbase:
+class Crunchbase:
 
-  def __init__(self):
+  def __init__(self, api_key):
+    self.api_key = api_key
     return None
 
   def __webRequest(self, url):
@@ -30,7 +31,7 @@ class crunchbase:
       raise CrunchBaseError(e)
 
   def __getJsonData(self, namespace, query=""):
-    url = API_URL + namespace + query + ".js"
+    url = API_URL + namespace + query + ".js?api_key="+ self.api_key
     response_dict = json.loads(self.__webRequest(url))
     return response_dict
 
@@ -103,4 +104,3 @@ class CrunchBaseResponse(object):
 
 class CrunchBaseError(Exception):
   pass
-
