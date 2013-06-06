@@ -1,7 +1,11 @@
 crunchbase
 ==========
  
-This is a Python Library for the Crunchbase API. So far the only change to the originally library is to add the Mashery API key into the queries so they are allowed by the Crunchbase API. Also, the class name was started with an uppercase letter to conform to PEP standards.
+This is a Python Library for the Crunchbase API. So far only two changes have been made to the original library.
+
+1. The Mashery API key has been added into the queries so they are allowed by the Crunchbase API. This means you now pass the Crunchbase class your API key upon instantiation.
+
+2. Also, the class name was started with an uppercase letter to conform to PEP standards.
 
 You can get an API key [here](http://developer.crunchbase.com/apps/register) once you have a Mashery Account.
 
@@ -23,7 +27,7 @@ The only change is to instantiate the Crunchbase class you must now pass in your
 ```
 from crunchbase import Crunchbase
 
-c = Crunchbase("YOUR_KEY") 
+c = Crunchbase("YOUR_KEY")	 
 print c.getCompanyData("square") # get the company data for square
 ```
 
